@@ -89,8 +89,3 @@ O sistema permite que os membros da comunidade acessem informações sobre a ent
 
 ---
 
-### Observações Finais:
-
-O protótipo da plataforma **"A FÉ QUE NUNCA MORRE"** está bem estruturado, com as funcionalidades de login, navegação e interação funcionando corretamente. 
-A fase seguinte envolve o desenvolvimento do back-end para a persistência de dados e a realização de testes com usuários reais para garantir a consistência e usabilidade do sistema.
-
