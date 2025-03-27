@@ -16,16 +16,31 @@ O sistema permite que os membros da comunidade acessem informações sobre a ent
 ### 1. **Capturas de Tela**
 
 - **Tela de Login**:
-  ![Tela de Login](evidencias/login.png)
+
+
+![image](https://github.com/user-attachments/assets/d7b2aee8-3b16-428c-9612-207ee08f6902)
+
   *Descrição: Esta captura mostra a tela de login onde o usuário pode inserir seu nome de usuário e senha.*
 
 - **Tela do Dashboard com mensagem de boas-vindas**:
-  ![Tela do Dashboard](evidencias/dashboard.png)
   *Descrição: Esta captura exibe o dashboard após o login, mostrando a mensagem de boas-vindas ao usuário.*
 
+
+![image](https://github.com/user-attachments/assets/7b7b648e-aba0-4e0d-8ccf-e410a47b1128)
+
+
 - **Abas Interativas**:
-  ![Abas Interativas](evidencias/abas.png)
   *Descrição: Aqui vemos as abas "Saiba Mais", "Eventos" e "Sobre a Entidade" que o usuário pode interagir.*
+
+![image](https://github.com/user-attachments/assets/38eefc43-9123-4fea-9aa5-5d484c259d54)
+
+- **Aba Interativa**: *Descrição: Aqui vemos a aba ''Deslogar'', que o usuário pode interagir, clickando aparece para logar no mesmo lugar sem levar para tela de login.*
+
+  ![image](https://github.com/user-attachments/assets/e3894b33-6847-46f2-980e-d1ac8d9e58ad)
+  
+   **Após logout**
+
+![image](https://github.com/user-attachments/assets/e8789bb8-fcf4-4ba3-b3a8-12f2a75532d4)
 
 ### 2. **Links Importantes**
 
