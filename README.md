@@ -16,11 +16,16 @@ O sistema permite que os membros da comunidade acessem informações sobre a ent
 ### 1. **Capturas de Tela**
 
 - **Tela de Login**:
-
+*Descrição: Esta captura mostra a tela de login onde o usuário pode inserir seu nome de usuário e senha.*
 
 ![image](https://github.com/user-attachments/assets/d7b2aee8-3b16-428c-9612-207ee08f6902)
 
-  *Descrição: Esta captura mostra a tela de login onde o usuário pode inserir seu nome de usuário e senha.*
+  
+- **Tela de Cadastro**:
+*Descrição: Esta captura mostra a tela de cadastro onde o usuário pode inserir seu nome de usuário e senha.*
+
+![image](https://github.com/user-attachments/assets/88cec6fe-66e5-4c5f-8413-09a2294aaac2)
+
 
 - **Tela do Dashboard com mensagem de boas-vindas**:
   *Descrição: Esta captura exibe o dashboard após o login, mostrando a mensagem de boas-vindas ao usuário.*
