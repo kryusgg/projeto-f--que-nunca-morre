@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A FÉ QUE NUNCA MORRE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            justify-content: center;
+        }
+        .tabs div {
+            padding: 15px 25px;
+            margin: 0 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        .tabs div:hover {
+            background-color: #45a049;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .active-tab {
+            background-color: #45a049;
+        }
+        .active-content {
+            display: block;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        /* Adicionando o estilo para a aba de deslogar */
+        #logoutButton {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #f44336;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: none;  /* Inicialmente escondido */
+        }
+        #logoutButton:hover {
+            background-color: #e53935;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>A FÉ QUE NUNCA MORRE</h1>
+    <p>Iluminando Caminhos, Transformando Vidas</p>
+</header>
+
+<!-- Menu de Abas -->
+<div class="tabs">
+    <div id="tab1" onclick="showTab(1)">Saiba Mais</div>
+    <div id="tab2" onclick="showTab(2)">Eventos</div>
+    <div id="tab3" onclick="showTab(3)">Sobre a Entidade</div>
+</div>
+
+<!-- Conteúdo das Abas -->
+<div class="tab-content" id="content1">
+    <h2>Saiba Mais</h2>
+    <p>Bem-vindo à nossa plataforma! Aqui, você encontra informações sobre nossa missão, valores e muito mais.</p>
+</div>
+
+<div class="tab-content" id="content2">
+    <h2>Eventos</h2>
+    <p>Confira nossa programação de eventos espirituais, palestras e cursos que transformam vidas!</p>
+</div>
+
+<div class="tab-content" id="content3">
+    <h2>Sobre a Entidade</h2>
+    <p>Entenda mais sobre nossa missão, visão e os projetos que realizamos para ajudar a comunidade.</p>
+</div>
+
+<!-- Login -->
+<div id="loginSection">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" name="username" placeholder="Nome de Usuário" required><br>
+        <input type="password" id="password" name="password" placeholder="Senha" required><br>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <div class="link">
+        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+    </div>
+
+    <!-- Mensagem de boas-vindas -->
+    <div id="welcomeMessage" class="message" style="display: none;">
+        <h3>Bem-vindo, <span id="user-name"></span>!</h3>
+    </div>
+</div>
+
+<!-- Aba Fixa para Deslogar -->
+<button id="logoutButton" onclick="logout()">Deslogar</button>
+
+<script>
+    // Função para exibir conteúdo das abas
+    function showTab(tabNumber) {
+        // Esconde todos os conteúdos
+        const allContents = document.querySelectorAll('.tab-content');
+        allContents.forEach(content => content.classList.remove('active-content'));
+
+        // Remove a classe 'active' das abas
+        const allTabs = document.querySelectorAll('.tabs div');
+        allTabs.forEach(tab => tab.classList.remove('active-tab'));
+
+        // Mostra o conteúdo da aba selecionada
+        const selectedContent = document.getElementById('content' + tabNumber);
+        selectedContent.classList.add('active-content');
+
+        // Destaca a aba selecionada
+        const selectedTab = document.getElementById('tab' + tabNumber);
+        selectedTab.classList.add('active-tab');
+    }
+
+    // Exibe a primeira aba por padrão
+    showTab(1);
+
+    // Função para simular o login
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        // Obtendo valores dos campos de login
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Simulação de verificação de login (pode ser ajustado com um back-end real)
+        if (username === "admin" && password === "1234") {
+            // Salvar o usuário logado no localStorage
+            localStorage.setItem("user", username);
+
+            // Exibir a mensagem de boas-vindas e ocultar o formulário
+            document.getElementById("welcomeMessage").style.display = "block";
+            document.getElementById("user-name").innerText = username;
+            document.getElementById("loginSection").style.display = "none";
+
+            // Mostrar o botão "Deslogar"
+            document.getElementById("logoutButton").style.display = "block";
+        } else {
+            alert("Usuário ou senha incorretos.");
+        }
+    });
+
+    // Função de deslogar
+    function logout() {
+        localStorage.removeItem("user");  // Remove o usuário do localStorage
+        document.getElementById("welcomeMessage").style.display = "none";
+        document.getElementById("loginSection").style.display = "block";
+        document.getElementById("logoutButton").style.display = "none";  // Oculta o botão "Deslogar"
+    }
+
+    // Verificar se o usuário já está logado
+    window.onload = function() {
+        var loggedUser = localStorage.getItem("user");
+        if (loggedUser) {
+            // Se já estiver logado, mostra a mensagem de boas-vindas e exibe a aba de deslogar
+            document.getElementById("welcomeMessage").style.display = "block";
+            document.getElementById("user-name").innerText = loggedUser;
+            document.getElementById("loginSection").style.display = "none";
+            document.getElementById("logoutButton").style.display = "block";  // Exibe o botão "Deslogar"
+        }
+    };
+</script>
+
+</body>
+</html>

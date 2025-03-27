@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - A FÉ QUE NUNCA MORRE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 30px;
+        }
+        .welcome-message {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="welcome-message">
+    <h2>Bem-vindo de volta, <span id="dashboard-user-name"></span>!</h2>
+    <button class="button" onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+</div>
+
+<script>
+    window.onload = function() {
+        var loggedUser = localStorage.getItem("user");
+        if (!loggedUser) {
+            window.location.href = "login.html"; // Se não estiver logado, redireciona para login
+        } else {
+            document.getElementById("dashboard-user-name").innerText = loggedUser;
+        }
+    };
+</script>
+
+</body>
+</html>

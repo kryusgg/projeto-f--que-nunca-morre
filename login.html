@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - A FÉ QUE NUNCA MORRE</title>
+    <h5>Usuário:admin Senha:1234</Senha:1234></h5>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 30px;
+        }
+        .login-form {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        .login-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-form">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="text" id="username" name="username" placeholder="Nome de Usuário" required><br>
+        <input type="password" id="password" name="password" placeholder="Senha" required><br>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Link para a página de Cadastro -->
+    <div class="link">
+        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+    </div>
+
+    <!-- Mensagem de boas-vindas -->
+    <div id="welcomeMessage" class="message" style="display: none;">
+        <h3>Bem-vindo, <span id="user-name"></span>!</h3>
+    </div>
+</div>
+
+<script>
+    // Função para simular o login
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        // Obtendo valores dos campos de login
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Simulação de verificação de login (pode ser ajustado com um back-end real)
+        if (username === "admin" && password === "1234") {
+            // Salvar o usuário logado no localStorage
+            localStorage.setItem("user", username);
+
+            // Exibir a mensagem de boas-vindas e ocultar o formulário
+            document.getElementById("welcomeMessage").style.display = "block";
+            document.getElementById("user-name").innerText = username;
+            document.querySelector(".login-form").style.display = "none";
+
+            // Redirecionar para o dashboard após o login
+            window.location.href = "dashboard.html";  // Redireciona para a página do Dashboard
+        } else {
+            alert("Usuário ou senha incorretos.");
+        }
+    });
+
+    // Verificar se o usuário já está logado
+    window.onload = function() {
+        var loggedUser = localStorage.getItem("user");
+        if (loggedUser) {
+            // Se já estiver logado, mostra a mensagem de boas-vindas e redireciona
+            document.getElementById("welcomeMessage").style.display = "block";
+            document.getElementById("user-name").innerText = loggedUser;
+            document.querySelector(".login-form").style.display = "none";
+            window.location.href = "dashboard.html";  // Redireciona para o Dashboard se já estiver logado
+        }
+    };
+</script>
+
+</body>
+</html>
